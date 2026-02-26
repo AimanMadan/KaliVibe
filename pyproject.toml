@@ -6,7 +6,7 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.13"
 authors = [
-    { name = "Aiman Madan", email = "aiman@example.com" }
+    { name = "Aiman Madan", email = "aimanmadan@hotmail.com" }
 ]
 keywords = ["security", "kali-linux", "llm", "mcp", "agent", "automation"]
 classifiers = [
