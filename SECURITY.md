@@ -24,6 +24,17 @@ If you discover a security vulnerability in KaliVibe, please report it responsib
 
 ⚠️ **Important:** KaliVibe executes real commands on your system with full shell access.
 
+### 🖥️ Virtual Machine Required (Strongly Recommended)
+
+**Always run KaliVibe in a VM.** This is not optional for safe usage.
+
+| Recommendation | Why |
+|----------------|-----|
+| Use VirtualBox, VMware, or Parallels | Isolate from your host |
+| Take snapshots before running | Easy rollback if something goes wrong |
+| Isolate VM network | Prevent accidental exposure |
+| Don't run on your primary machine | Protect your real data |
+
 ### Risks
 
 - The LLM has unrestricted access to your shell
@@ -32,7 +43,7 @@ If you discover a security vulnerability in KaliVibe, please report it responsib
 
 ### Best Practices
 
-1. **Run in isolated environments** (VMs, containers)
+1. **Run in a virtual machine** (required for safe usage)
 2. **Review commands** before execution in sensitive environments
 3. **Never expose** the agent to untrusted inputs
 4. **Protect your `.env` file** - it contains your API key

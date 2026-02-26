@@ -4,6 +4,8 @@
 
 Think of it as an AI-powered sidekick for security professionals — one that remembers where it is, what it's done, and can execute real commands on your system.
 
+> 🖥️ **Important:** Run KaliVibe in a **virtual machine**. The LLM has unrestricted shell access — protect your primary machine.
+
 ---
 
 ## ✨ Features
@@ -22,10 +24,13 @@ Think of it as an AI-powered sidekick for security professionals — one that re
 
 | Requirement | Version | Notes |
 |-------------|---------|-------|
+| **Virtual Machine** | — | **Highly recommended** for safety |
 | Python | 3.13+ | Required |
 | uv | Latest | Python package manager |
 | OpenAI API Key | — | For LLM access |
 | Node.js/npm | 18+ | Optional, for MCP Inspector debugging |
+
+> ⚠️ **Run in a VM!** KaliVibe gives the LLM full shell access. Always use a virtual machine with snapshots.
 
 ### Installation
 
@@ -220,10 +225,20 @@ npx @modelcontextprotocol/inspector uv run python -m src.mcp_server.server
 
 **KaliVibe executes real commands on your system.** The LLM has full shell access.
 
-- **Run in isolated environments** (VMs, containers) when possible
+### 🖥️ Run in a Virtual Machine (Highly Recommended)
+
+KaliVibe gives an AI unrestricted shell access. For your safety:
+
+- **ALWAYS run in a VM** (VirtualBox, VMware, Parallels, etc.)
+- Use snapshots so you can revert if something goes wrong
+- Isolate the VM from your host network if possible
+- Never run on your primary/production machine
+
+### Additional Precautions
+
 - **Review commands** before letting the agent run unattended
 - **Never expose** the agent to untrusted inputs or networks
-- **Audit logs** regularly if using in production
+- **Audit logs** regularly if using in production environments
 
 ---
 
