@@ -25,7 +25,7 @@ Be respectful, inclusive, and constructive. We're all here to build something us
 1. **Fork** the repository on GitHub
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/KaliVibe.git
+   git clone https://github.com/AimanMadan/KaliVibe.git
    cd KaliVibe
    ```
 3. **Create a branch** for your changes:
