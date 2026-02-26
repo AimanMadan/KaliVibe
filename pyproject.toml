@@ -1,12 +1,35 @@
 [project]
 name = "kalivibe"
 version = "0.1.0"
-description = "Add your description here"
+description = "Autonomous security agent for Kali Linux with persistent bash terminal and MCP tools"
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.13"
+authors = [
+    { name = "Aiman Madan", email = "aiman@example.com" }
+]
+keywords = ["security", "kali-linux", "llm", "mcp", "agent", "automation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: System :: Systems Administration",
+]
 dependencies = [
     "mcp[cli]>=1.26.0",
     "openai>=2.24.0",
     "pexpect>=4.9.0",
     "ruff>=0.15.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/AimanMadan/KaliVibe"
+Repository = "https://github.com/AimanMadan/KaliVibe"
+Issues = "https://github.com/AimanMadan/KaliVibe/issues"
+Documentation = "https://github.com/AimanMadan/KaliVibe#readme"
