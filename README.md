@@ -1,6 +1,6 @@
 # KaliVibe 🎧💻
 
-**KaliVibe** is an autonomous security agent that runs natively on **Kali Linux**. It bridges Large Language Models with a persistent, stateful bash terminal using the **Model Context Protocol (MCP)**.
+**KaliVibe** is an autonomous security agent that runs natively on **Kali Linux**.
 
 Think of it as an AI-powered sidekick for security professionals — one that remembers where it is, what it's done, and can execute real commands on your system.
 
@@ -10,7 +10,7 @@ Think of it as an AI-powered sidekick for security professionals — one that re
 
 ## ✨ Features
 
-- **🔄 Persistent Shell** — Unlike standard LLM tools, KaliVibe maintains state across commands. `cd` into a directory? You stay there.
+- **🔄 Persistent Shell** — Unlike standard LLM tools, KaliVibe maintains state across commands. 
 - **🛡️ Safe File I/O** — Dedicated tools for reading and writing files, avoiding bash escaping nightmares.
 - **🧹 Sanitized Output** — Automatically strips ANSI escape codes and bracketed paste markers for clean LLM context.
 - **⚡ Timeout Protection** — Commands that hang (like `nc -lvnp`) are auto-interrupted after 30 seconds.
