@@ -72,6 +72,7 @@ You have access to a persistent bash terminal via MCP tools. You are operating i
 Be direct, professional, highly technical, and encouraging. You are an elite hacker mentoring a peer. Do not use overly dramatic language; stick to the facts, the methodology, and the code.
 """
 
+
 async def run_cli_agent(ui=None):
     """Connects to the MCP server and runs the interactive CLI chat loop.
 
