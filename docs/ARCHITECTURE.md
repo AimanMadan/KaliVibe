@@ -6,11 +6,12 @@ This document describes the internal architecture of KaliVibe.
 
 ## Overview
 
-KaliVibe is built on three core components:
+KaliVibe is built on four core components:
 
 1. **Agent (LLM Brain)** - The reasoning engine powered by OpenAI
 2. **MCP Server** - The tool interface using Model Context Protocol
 3. **Terminal Session** - The persistent bash shell using pexpect
+4. **TUI Layer** - Optional Rich-based terminal UI for enhanced output
 
 ---
 
@@ -24,7 +25,25 @@ The agent is the brain of KaliVibe. It:
 - Maintains conversation history
 - Receives tool definitions from the MCP server
 - Executes tool calls and returns results
-- Runs an interactive CLI loop
+- Runs an interactive CLI loop with pluggable UI
+
+#### UI Abstraction
+
+The agent accepts an optional `ui` parameter implementing a simple interface:
+
+```python
+class UIProtocol:
+    def print_boot(self, msg: str) -> None: ...
+    def print_system(self, msg: str) -> None: ...
+    def print_agent(self, content: str) -> None: ...
+    def print_tool_call(self, name: str, args: dict) -> None: ...
+    def print_tool_result(self, text: str) -> None: ...
+    def get_user_input(self) -> str: ...
+    def start_loading(self) -> None: ...
+    def stop_loading(self) -> None: ...
+```
+
+If no UI is provided, a `_DefaultCLI` fallback uses plain `print()` and `input()`.
 
 ```
 ┌─────────────────────────────────────┐
@@ -111,6 +130,27 @@ The terminal session provides a persistent bash shell using `pexpect`.
    self.child.sendintr()  # Ctrl+C
    ```
    Prevents infinite loops from hanging the agent.
+
+### 4. TUI Layer (`src/tui/`)
+
+The TUI layer provides an optional Rich-based terminal interface.
+
+#### Components
+
+- **`console.py`** - `RichUI` class implementing the UI protocol with:
+  - Panels for agent responses and system messages
+  - Markdown rendering for agent output
+  - Syntax-highlighted JSON for tool arguments
+  - Animated loading spinner during LLM calls
+  - Clean input prompt with visual feedback
+
+#### Enabling the TUI
+
+```bash
+uv run python -m src.main --tui
+```
+
+Without `--tui`, the agent uses plain CLI output.
 
 ---
 
