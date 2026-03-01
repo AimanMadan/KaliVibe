@@ -75,7 +75,8 @@ User> _
 ## 🏗 Architecture
 
 
-<img width="558" height="653" alt="image" src="https://github.com/user-attachments/assets/af4d6c5c-d53b-48d2-be23-d4823fc340fc" />
+<img width="367" height="610" alt="image" src="https://github.com/user-attachments/assets/317e5095-9a1a-407d-87ff-80b9ea69d375" />
+
 
 
 ### Project Structure
