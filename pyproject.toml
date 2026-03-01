@@ -25,6 +25,7 @@ dependencies = [
     "mcp[cli]>=1.26.0",
     "openai>=2.24.0",
     "pexpect>=4.9.0",
+    "rich>=14.3.3",
     "ruff>=0.15.2",
 ]
 
