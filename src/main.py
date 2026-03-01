@@ -1,4 +1,3 @@
-import argparse
 import asyncio
 import os
 import signal
@@ -35,20 +34,7 @@ def _print_exception_group(exc: BaseExceptionGroup) -> None:
 
 def main() -> None:
     """Main entry point for KaliVibe."""
-    parser = argparse.ArgumentParser(description="KaliVibe — autonomous security agent")
-    parser.add_argument(
-        "--tui",
-        action="store_true",
-        help="Use Rich TUI (panels, markup). Default is plain CLI.",
-    )
-    parser.add_argument(
-        "--cli",
-        action="store_true",
-        help="Use plain CLI (default if no --tui).",
-    )
-    args = parser.parse_args()
-
-    ui = RichUI() if args.tui else None
+    ui = RichUI()  # Rich TUI is now the default
 
     def _on_sigint(*_args: object) -> None:
         print("\nSession terminated by user.")

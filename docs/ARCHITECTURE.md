@@ -11,7 +11,7 @@ KaliVibe is built on four core components:
 1. **Agent (LLM Brain)** - The reasoning engine powered by OpenAI
 2. **MCP Server** - The tool interface using Model Context Protocol
 3. **Terminal Session** - The persistent bash shell using pexpect
-4. **TUI Layer** - Optional Rich-based terminal UI for enhanced output
+4. **TUI Layer** - Rich-based terminal UI for enhanced output
 
 ---
 
@@ -29,7 +29,7 @@ The agent is the brain of KaliVibe. It:
 
 #### UI Abstraction
 
-The agent accepts an optional `ui` parameter implementing a simple interface:
+The agent uses a `ui` parameter implementing a simple interface:
 
 ```python
 class UIProtocol:
@@ -43,7 +43,7 @@ class UIProtocol:
     def stop_loading(self) -> None: ...
 ```
 
-If no UI is provided, a `_DefaultCLI` fallback uses plain `print()` and `input()`.
+By default, `main.py` passes a `RichUI` instance. A `_DefaultCLI` fallback is available for testing or headless scenarios.
 
 ```
 ┌─────────────────────────────────────┐
@@ -133,7 +133,7 @@ The terminal session provides a persistent bash shell using `pexpect`.
 
 ### 4. TUI Layer (`src/tui/`)
 
-The TUI layer provides an optional Rich-based terminal interface.
+The TUI layer provides the Rich-based terminal interface.
 
 #### Components
 
@@ -143,14 +143,6 @@ The TUI layer provides an optional Rich-based terminal interface.
   - Syntax-highlighted JSON for tool arguments
   - Animated loading spinner during LLM calls
   - Clean input prompt with visual feedback
-
-#### Enabling the TUI
-
-```bash
-uv run python -m src.main --tui
-```
-
-Without `--tui`, the agent uses plain CLI output.
 
 ---
 

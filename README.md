@@ -11,7 +11,7 @@ Think of it as an AI-powered sidekick for security professionals — one that re
 ## ✨ Features
 
 - **🔄 Persistent Shell** — Unlike standard LLM tools, KaliVibe maintains state across commands.
-- **🎨 Rich TUI** — Optional terminal UI with panels, markdown rendering, and loading spinners (use `--tui` flag).
+- **🎨 Rich TUI** — Terminal UI with panels, markdown rendering, and loading spinners.
 - **🛡️ Safe File I/O** — Dedicated tools for reading and writing files, avoiding bash escaping nightmares.
 - **🧹 Sanitized Output** — Automatically strips ANSI escape codes and bracketed paste markers for clean LLM context.
 - **⚡ Timeout Protection** — Commands that hang (like `nc -lvnp`) are auto-interrupted after 30 seconds.
@@ -50,16 +50,8 @@ uv sync
 
 ### Running the Agent
 
-KaliVibe supports two interface modes:
-
-**Plain CLI (default):**
 ```bash
 uv run python -m src.main
-```
-
-**Rich TUI (panels, markdown, spinners):**
-```bash
-uv run python -m src.main --tui
 ```
 
 You'll see:
@@ -91,7 +83,7 @@ User> _
 ```
 KaliVibe/
 ├── src/
-│   ├── main.py              # Entry point + CLI args
+│   ├── main.py              # Entry point
 │   ├── config/
 │   │   └── settings.py      # Centralized config & secrets
 │   ├── agent/
