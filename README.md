@@ -10,7 +10,8 @@ Think of it as an AI-powered sidekick for security professionals — one that re
 
 ## ✨ Features
 
-- **🔄 Persistent Shell** — Unlike standard LLM tools, KaliVibe maintains state across commands. 
+- **🔄 Persistent Shell** — Unlike standard LLM tools, KaliVibe maintains state across commands.
+- **🎨 Rich TUI** — Terminal UI with panels, markdown rendering, and loading spinners.
 - **🛡️ Safe File I/O** — Dedicated tools for reading and writing files, avoiding bash escaping nightmares.
 - **🧹 Sanitized Output** — Automatically strips ANSI escape codes and bracketed paste markers for clean LLM context.
 - **⚡ Timeout Protection** — Commands that hang (like `nc -lvnp`) are auto-interrupted after 30 seconds.
@@ -55,9 +56,16 @@ uv run python -m src.main
 
 You'll see:
 ```
-Booting KaliVibe MCP Server...
-
-[System]: Agent online using gpt-4o. Type 'exit' to quit.
+Booting KaliVibe...
+╭─────────────╮
+│ [System]    │
+│ Agent       │
+│ online.     │
+│ Type /exit, │
+│ /quit, or   │
+│ /stop to    │
+│ quit.       │
+╰─────────────╯
 
 User> _
 ```
@@ -82,8 +90,11 @@ KaliVibe/
 │   │   └── llm.py           # OpenAI client + reasoning loop
 │   ├── mcp_server/
 │   │   └── server.py        # FastMCP tools (execute, read, write)
-│   └── terminal/
-│       └── session.py       # Persistent pexpect bash session
+│   ├── terminal/
+│   │   └── session.py       # Persistent pexpect bash session
+│   └── tui/
+│       ├── __init__.py      # TUI module exports
+│       └── console.py       # Rich-based terminal UI
 ├── .env.example             # Environment template
 ├── pyproject.toml           # Project metadata & deps
 └── README.md
@@ -215,6 +226,7 @@ KaliVibe gives an AI unrestricted shell access. For your safety:
 
 ## 🗺 Roadmap
 
+- [x] Rich TUI with panels and markdown rendering
 - [ ] Web dashboard for session monitoring
 - [ ] Multi-terminal support
 - [ ] Command logging & replay
@@ -246,6 +258,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Model Context Protocol](https://modelcontextprotocol.io/) - For the excellent tooling standard
 - [OpenAI](https://openai.com/) - For the powerful LLM API
 - [pexpect](https://pexpect.readthedocs.io/) - For robust terminal handling
+- [Rich](https://github.com/Textualize/rich) - For beautiful terminal formatting
 
 ---
 
